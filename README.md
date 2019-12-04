@@ -20,6 +20,8 @@
   ```
   docker run -it -p 8050:8050 scrapinghub/splash
   ```
+  
+  [splash安装教程📖](https://splash.readthedocs.io/en/stable/install.html#linux-docker)
 
 二. 通过splash获取这三个cookie，代码如下
 
