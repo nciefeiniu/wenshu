@@ -118,6 +118,9 @@ def get_wenshu_cookie():
         res_json = res.json()
         for cookie in res_json['cookie'] if res_json else []:
             _temp_res[str(cookie['name'])] = str(cookie['value'])
+        # 这个cookie不能要，这个cookie会在 wzws解密的地方增加上去
+        if "wzws_cid" in _temp_res:
+            _temp_res.pop("wzws_cid")
         return _temp_res
     else:
         print res.status_code
