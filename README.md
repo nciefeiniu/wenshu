@@ -2,6 +2,31 @@
 文书网cookie获取 2019-10-23
 
 
+## 2019-10-24 再次更新
+
+这次如果按照以前的请求方式，会返回一个html页面
+
+这个页面如 [demo.html](https://github.com/nciefeiniu/wenshu/blob/master/demo.html)
+
+用浏览器打开这个文件，会发现会重定向到一个新的URL
+
+如：http://localhost:63342/WZWSREL3dlYnNpdGUvcGFyc2UvcmVzdC5xNHc=?wzwschallenge=V1pXU19DT05GSVJNX1BSRUZJWF9MQUJFTDQxNjUyNzE=
+
+因为是本地打开的，所以域名是`localhost:63342`
+
+把这个本地地址换成 `http://wenshu.court.gov.cn`这个后
+
+神奇的事情发生了，可以获取到数据了。而且后面的请求也没返回这个 `html` 文件了。
+
+### 所以这次反爬解决方案
+
+在请求返回的地方增加一个判断，如果是 `html` 文件，那么就解析这个文件，获取新的URL，并重试，发送 `post` 请求即可。
+
+这个html怎么解析？？
+
+这个可以看看 @songguoxiong 的项目下的 [decrypt.py文件](https://github.com/songguoxiong/wenshu_utils/blob/master/wenshu_utils/old/wzws/decrypt.py)
+
+
 ## 2019-10-23 可行方案
 
 现在比较难的就是获取 cookie
