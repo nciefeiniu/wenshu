@@ -30,7 +30,13 @@
 
 ### splash返回cookie错误
 
-1. 如果遇到splash不怎么返回`80T`和`80S`这两个 `cookie`，可以设置久一点splash等待页面加载时间，我之前是0.5秒，后来改为5秒，基本就能返回对应的`cookie`了
+1. 如果遇到splash不怎么返回`80T`和`80S`这两个 `cookie`，可以设置久一点splash等待页面加载时间，我之前是0.5秒，后来改为5秒，基本就能返回对应的`cookie`了,对应的splash lua_SCRIPT为：
+
+```
+assert(splash:wait(0.5))
+# 修改为
+assert(splash:wait(5))
+```
 
 
 2. 如果没返回正确的`cookie`，而且返回的`html`是空的，只有
