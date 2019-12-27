@@ -4,29 +4,41 @@
 
 ## 2019-10-24 再次更新
 
-这次如果按照以前的请求方式，会返回一个html页面
+1. 这次如果按照以前的请求方式，会返回一个html页面
 
-这个页面如 [demo.html](https://github.com/nciefeiniu/wenshu/blob/master/demo.html)
+	这个页面如 [demo.html](https://github.com/nciefeiniu/wenshu/blob/master/demo.html)
 
-用浏览器打开这个文件，会发现会重定向到一个新的URL
+2. 用浏览器打开这个文件，会发现会重定向到一个新的URL
 
-如：http://localhost:63342/WZWSREL3dlYnNpdGUvcGFyc2UvcmVzdC5xNHc=?wzwschallenge=V1pXU19DT05GSVJNX1BSRUZJWF9MQUJFTDQxNjUyNzE=
+	如：http://localhost:63342/WZWSREL3dlYnNpdGUvcGFyc2UvcmVzdC5xNHc=?wzwschallenge=V1pXU19DT05GSVJNX1BSRUZJWF9MQUJFTDQxNjUyNzE=
 
-因为是本地打开的，所以域名是`localhost:63342`
+	因为是本地打开的，所以域名是`localhost:63342`
 
-把这个本地地址换成 `http://wenshu.court.gov.cn`这个后
+3. 把这个本地地址换成 `http://wenshu.court.gov.cn`这个后
 
-神奇的事情发生了，可以获取到数据了。而且后面的请求也没返回这个 `html` 文件了。
+	神奇的事情发生了，可以获取到数据了。而且后面的请求也没返回这个 `html` 文件了。
 
 ### 所以这次反爬解决方案
 
-在请求返回的地方增加一个判断，如果是 `html` 文件，那么就解析这个文件，获取新的URL，并重试，发送 `post` 请求即可。
+1. 在请求返回的地方增加一个判断，如果是 `html` 文件，那么就解析这个文件，获取新的URL，并重试，发送 `post` 请求即可。
 
-这个html怎么解析？？
+2. 这个html怎么解析？？
 
-这个可以看看 @songguoxiong 的项目下的 [decrypt.py文件](https://github.com/songguoxiong/wenshu_utils/blob/master/wenshu_utils/old/wzws/decrypt.py)
+	这个可以看看 @songguoxiong 的项目下的 [decrypt.py文件](https://github.com/songguoxiong/wenshu_utils/blob/master/wenshu_utils/old/wzws/decrypt.py)
 
-⚠️ ！ splash返回的cookie中，需要去除 `wzws_cid` 这个cookie
+⚠️ 注意 splash返回的cookie中，需要去除 `wzws_cid` 这个cookie
+
+### splash返回cookie错误
+
+1. 如果遇到splash不怎么返回`80T`和`80S`这两个 `cookie`，可以设置久一点splash等待页面加载时间，我之前是0.5秒，后来改为5秒，基本就能返回对应的`cookie`了
+
+
+2. 如果没返回正确的`cookie`，而且返回的`html`是空的，只有
+
+```html
+<html><head></head><body></body></html>
+```
+那么很有可能你的IP被封禁了，增加代理去获取`cookie`把
 
 
 ## 2019-10-23 可行方案
