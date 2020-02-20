@@ -32,7 +32,7 @@ def _decrypt_by_python(text):
     
    
 if __name__ == "__main__":
-    with open("test.html") as f:
+    with open("demo.html") as f:
     _content = f.read()
 
     _resp = decrypt_wzws(_content)
