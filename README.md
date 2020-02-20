@@ -24,7 +24,9 @@
 
 2. 这个html怎么解析？？
 
-	这个可以看看 @songguoxiong 的项目下的 [decrypt.py文件](https://github.com/songguoxiong/wenshu_utils/blob/master/wenshu_utils/old/wzws/decrypt.py)
+~这个可以看看 @songguoxiong 的项目下的 [decrypt.py文件](https://github.com/songguoxiong/wenshu_utils/blob/master/wenshu_utils/old/wzws/decrypt.py)~
+
+请看 `decrypt.py` 文件
 
 ⚠️ 注意 splash返回的cookie中，需要去除 `wzws_cid` 这个cookie
 
