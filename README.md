@@ -10,6 +10,11 @@
 ⚠️获取cookie的地址是 `http://wenshu.court.gov.cn/` 这是http的，那么才会返回 `80S` 和 `80T` 这两个cookie的
 
 
+获取的 cookie 是通过 http的链接获取，后面的爬取也用http
+
+获取 cookie 是通过 https 获取的，后面的爬取也用https 即可
+
+
 
 ## 2019-10-24 再次更新
 
