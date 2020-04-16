@@ -5,6 +5,10 @@
 获取cookie的demo请见[demo](./demo/get_cookie.py)
 
 
+⚠️如果获取cookie的地址是 `https://wenshu.court.gov.cn/` 这是https，那么是不会返回 `80S` 和 `80T` 这两个cookie的，返回的是 `443S` 和 `443T`
+⚠️获取cookie的地址是 `http://wenshu.court.gov.cn/` 这是http的，那么才会返回 `80S` 和 `80T` 这两个cookie的
+
+
 
 ## 2019-10-24 再次更新
 
