@@ -1,5 +1,9 @@
 # wenshu
-文书网cookie获取 2019-10-23
+
+> 文书网cookie获取 2020-04-16
+
+获取cookie的demo请见[demo](./demo/get_cookie.py)
+
 
 
 ## 2019-10-24 再次更新
