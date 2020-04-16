@@ -127,3 +127,4 @@ dmypy.json
 将删除 .idea/
 将删除 demo/__init__.py
 .idea
+venv
